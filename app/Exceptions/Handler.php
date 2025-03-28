@@ -6,7 +6,7 @@ use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\Access\AuthorizationException;  
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
@@ -57,7 +57,7 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof HttpException) {
             $code = $exception->getStatusCode();
-            $message = Response::statusTexts[$code];
+            $message = Response::$statusTexts[$code];
 
             return $this->errorResponse($message, $code);
         }
